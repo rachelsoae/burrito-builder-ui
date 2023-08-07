@@ -5,3 +5,10 @@ Cypress.Commands.add('loadPage', () => {
   }).as('getOrders')
   cy.visit('http://localhost:3000/')
 })
+
+Cypress.Commands.add('postOrder', () => {
+  cy.intercept('POST', 'http://localhost:3001/api/v1/orders', {
+    statusCode: 201,
+    fixture: 'newOrder'
+  }).as('postOrder')
+})
