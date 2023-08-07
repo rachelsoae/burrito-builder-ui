@@ -1,15 +1,28 @@
 import { useState } from "react";
 
-function OrderForm() {
+const OrderForm = () => {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
 
-  function handleSubmit(e) {
+  const handleClick = (e) => {
     e.preventDefault();
-    clearInputs();
+    // when button is clicked, push name of ingredient into array
+    setIngredients(prevState => [...prevState, e.target.name])
   }
 
-  function clearInputs() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (checkForm()) {
+      clearInputs();
+    }
+  }
+
+  const checkForm = () => {
+    let result = name && ingredients.length ? true : alert('false')
+    return result;
+  }
+
+  const clearInputs = () => {
     setName("");
     setIngredients([]);
   };
@@ -33,7 +46,7 @@ function OrderForm() {
       <button
         key={ingredient}
         name={ingredient}
-        // onClick={(e) => }
+        onClick={(e) => handleClick(e)}
       >
         {ingredient}
       </button>
