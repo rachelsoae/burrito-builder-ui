@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { postOrder } from '../../apiCalls'
 
 const OrderForm = () => {
   const [name, setName] = useState("");
@@ -12,6 +13,9 @@ const OrderForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (checkForm()) {
+      const newOrder = {name, ingredients}
+      postOrder(newOrder)
+      .then(response => console.log(response))
       clearInputs();
     }
   }
