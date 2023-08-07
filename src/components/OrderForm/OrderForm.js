@@ -6,7 +6,6 @@ const OrderForm = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    // when button is clicked, push name of ingredient into array
     setIngredients(prevState => [...prevState, e.target.name])
   }
 
@@ -18,8 +17,13 @@ const OrderForm = () => {
   }
 
   const checkForm = () => {
-    let result = name && ingredients.length ? true : alert('false')
-    return result;
+    if (!name) {
+      alert('Please enter a name for this order.')
+    } else if (ingredients.length < 1) {
+      alert('Please select at least one ingredient.')
+    } else {
+      return true
+    }
   }
 
   const clearInputs = () => {
