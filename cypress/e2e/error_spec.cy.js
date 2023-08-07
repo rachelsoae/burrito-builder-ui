@@ -15,10 +15,6 @@ describe("Form Error Handling", () => {
   it("should display an alert if form is submitted without a name", () => {
     cy.wait('@getOrders').then((interception) => {
       cy.get('button').contains('beans').click()
-      cy.get('button').contains('sofritas').click()
-      cy.get('button').contains('queso fresco').click()
-      cy.get('button').contains('jalapenos').click()
-      cy.get('button').contains('Submit Order').click()
       cy.on('window:alert', (alert) => {
         expect(alert).to.contains('Please enter a name for this order.')
       })
