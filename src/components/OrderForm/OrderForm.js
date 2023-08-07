@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { postOrder } from '../../apiCalls'
+import './OrderForm.css'
 
 const OrderForm = ({setOrders}) => {
   const [name, setName] = useState("");
@@ -73,11 +74,13 @@ const OrderForm = ({setOrders}) => {
         onChange={(e) => setName(e.target.value)}
       />
 
-      {ingredientButtons}
+      <div className='buttons'>
+        {ingredientButtons}
+      </div>
 
-      <p>Order: {ingredients.join(", ") || "Nothing selected"}</p>
+      <p className='order-summary'>Order: {ingredients.join(", ") || "Nothing selected"}</p>
 
-      <button onClick={(e) => handleSubmit(e)}>Submit Order</button>
+      <button onClick={(e) => handleSubmit(e)} className='submit'>Submit Order</button>
     </form>
   );
 }
