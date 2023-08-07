@@ -1,5 +1,5 @@
 * {
-  /* border: 1px solid blue; */
+  letter-spacing: 2px;
 }
 
 form {
@@ -28,11 +28,6 @@ button:hover {
   background-color: orange;
   color: white;
   font-weight: 700;
-}
-
-.order-summary,
-button {
-  letter-spacing: 2px;
 }
 
 .order-summary {
