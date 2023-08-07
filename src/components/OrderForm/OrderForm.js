@@ -8,7 +8,7 @@ const OrderForm = ({setOrders}) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setIngredients(prevState => [...prevState, e.target.name])
+    ingredients.includes(e.target.name) ? alert(`You already added ${e.target.name} to your burrito!`) : setIngredients(prevState => [...prevState, e.target.name])    
   }
 
   const handleSubmit = (e) => {
