@@ -21,7 +21,9 @@ const OrderForm = ({setOrders}) => {
   }
 
   const checkForm = () => {
-    if (!name) {
+    if (!name && ingredients.length < 1) {
+      alert('Please fill out the order form.')
+    } else if (!name) {
       alert('Please enter a name for this order.')
     } else if (ingredients.length < 1) {
       alert('Please select at least one ingredient.')
