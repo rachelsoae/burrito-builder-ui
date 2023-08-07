@@ -1,4 +1,4 @@
-describe("Page Load Behavior", () => {
+describe("Form Submission", () => {
   it("should submit and display a new order", () => {
     cy.loadPage();
     cy.postOrder();
@@ -14,7 +14,6 @@ describe("Page Load Behavior", () => {
       cy.get('button').contains('jalapenos').click()
         .get('p').contains('beans, sofritas, queso fresco, jalapenos');
       cy.get('button').contains('Submit Order').click()
-
 
       cy.wait('@postOrder').then((interception) => {
         
