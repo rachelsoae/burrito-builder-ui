@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postOrder } from '../../apiCalls'
 
-const OrderForm = () => {
+const OrderForm = ({setOrders}) => {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
 
@@ -15,7 +15,7 @@ const OrderForm = () => {
     if (checkForm()) {
       const newOrder = {name, ingredients}
       postOrder(newOrder)
-      .then(response => console.log(response))
+      .then(response => setOrders(prevState => [...prevState, response]))
       clearInputs();
     }
   }
